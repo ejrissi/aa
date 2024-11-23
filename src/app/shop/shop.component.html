@@ -1,0 +1,43 @@
+<div class="container">
+
+  <div class="search">
+    <form class="f d-flex" (ngSubmit)="onSearch()">
+      <input class="form-control me-2" type="search" placeholder="Search articles" aria-label="Search"
+        [(ngModel)]="searchQuery" name="searchQuery" />
+      <button class="btn btn-primary" type="submit">Search</button>
+    </form>
+  </div>
+
+
+  <div class="content">
+    <div class="image" *ngFor="let item of filteredArticles; let i = index"
+      (mouseover)="showButtons[i] = true; showDetails[i] = true"
+      (mouseout)="showButtons[i] = false; showDetails[i] = false">
+
+      <button class="nav-btn left" *ngIf="showButtons[i]" (click)="previousImage(i)">
+        &#10094;
+      </button>
+      <img [src]="item.photo[currentImageIndex[i]]" alt="Article Image" />
+      <button class="nav-btn right" *ngIf="showButtons[i]" (click)="nextImage(i)">
+        &#10095;
+      </button>
+
+
+      <p class="desc" *ngIf="!showDetails[i]">{{ item.desc }}</p>
+      <p class="price" *ngIf="!showDetails[i]">Price: <strong>{{ item.prix }} points</strong></p>
+
+      <p class="taille-etat" *ngIf="showDetails[i]">Taille: {{ item.taille }}</p>
+      <p class="taille-etat" *ngIf="showDetails[i]">State: {{ item.etat }}</p>
+
+      <div class="buttons">
+        <button *ngIf="!authService.isAdmin()" class="bu cart" (click)="addToCart(item)">Cart</button>
+        <button *ngIf="authService.isAdmin()" class="bu delete" (click)="deleteArticle(i)">
+          Delete
+        </button>
+        <button *ngIf="authService.isAdmin()" class="bu update" [routerLink]="['/update', item.id]">
+          Update
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

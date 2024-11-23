@@ -1,0 +1,71 @@
+.article
+{
+    width: 100%;
+    display: flex;
+    margin-top: 50px;
+    
+    
+    justify-content: center;
+    
+    
+}
+
+.text
+{
+    
+  
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.p{
+    margin-top: 50px;
+    font-family: sans-seri;
+  
+    width: 88%;
+   
+    
+
+
+}
+
+button
+{
+    border-radius: 8px;
+    padding: 3px 20px;
+    color: rgb(22, 18, 18);
+    font-family: sans-seri;
+    font-size: 20px;
+    transition: all 0.4s ease;
+}
+
+
+.co
+{
+    width:35%;
+}
+
+.photo
+{
+   display: flex;
+   
+}
+
+img
+{
+    height: 550px;
+   
+
+}
+
+.bb:hover
+{
+    background-color: black;
+    color: white;
+}
+
+
+

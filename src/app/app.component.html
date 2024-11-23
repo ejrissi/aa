@@ -1,0 +1,121 @@
+
+
+
+<nav class="one">
+  <h2 class="h2">Wear&Share</h2>
+
+<div class="righto">
+
+
+  <li class="l" routerLink="cart">
+    <i class="fa-solid fa-cart-shopping"></i>
+  </li>
+
+
+
+
+
+
+  <li class="n nav-item dropdown">
+
+    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      <i class="f fas fa-user"></i>Account
+    </a>
+    <ul class="dropdown-menu">
+      <li> <a class="dropdown-item" routerLink="profile">{{authService.loggedUser}}</a></li>
+      <li><a  *ngIf="!authService.isloggedIn" class="dropdown-item" routerLink="login">Login</a></li>
+      <li><a *ngIf="authService.isloggedIn"  class="dropdown-item" (click) = " onLogout()">Logout</a></li>
+    </ul>
+  </li>
+
+
+
+</div>
+
+</nav>
+
+
+
+
+<div class="content">
+
+  <nav class="two">
+      <div class="right">
+
+
+          <a class="ll" routerLink="/home">
+              Home
+          </a>
+          <a class="ll" routerLink="/shop">
+              Shop
+          </a>
+
+          <a class="ll" routerLink="/about">
+              About Us
+          </a>
+
+          <a  *ngIf="authService.isAdmin()"  class="ll" routerLink="/add">
+            Add
+        </a>
+
+
+
+
+      </div>
+
+
+      
+  </nav>
+
+  <router-outlet></router-outlet>
+
+
+  <footer>
+
+    <div class="foot">
+
+        <div class="cat">
+
+            <h2 class="h2t">Categories</h2>
+
+
+            <p>Women</p>
+            <p>Men</p>
+            <p>Shoes</p>
+
+
+        </div>
+
+
+
+        <div class="get">
+            <h2 class="h2t">GET  in touch</h2>
+            <p>Any questions? </p>
+               <p> Let us know in store at 8th floor</p>
+               <p>,Nabeul , Mrazga, NY 10018 or call us on (+216) 22 274 325  </p>
+        </div>
+
+
+
+
+    </div>
+
+    <div class="copy">
+        <p>Copyright ©2024 All rights reserved | This template is made with  by wear&share</p>
+
+    </div>
+
+</footer>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+

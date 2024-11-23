@@ -1,0 +1,68 @@
+
+.content
+{
+  width: 100%;
+
+  display: flex;
+
+
+  margin-top: 100px;
+  margin-bottom: 60px;
+}
+
+.container
+{
+  width: auto;
+}
+
+p{
+  text-align: center;
+  padding-top: 35px;
+  margin-right: 20px;
+  font-size: 20px;
+  font-style: italic;
+  font-family: sans-seri;
+
+}
+
+input
+{
+  width: 300px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  border-bottom: 1px solid;
+}
+
+input:focus
+{
+  border: none;
+  outline: none;
+  text-align: center;
+  border-bottom: 1px solid;
+}
+.taille
+{
+
+  display: flex;
+  justify-content: space-between;
+  margin-top:30px;
+  align-items: center;
+
+}
+.button
+{
+  justify-content: center;
+  text-align: center;
+  margin-top: 9px;
+}
+button
+{
+  padding: 8px 23px;
+  border-radius: 5px;
+  background-color: transparent;
+  color: green;
+  border: 1px solid green;
+}
+
+

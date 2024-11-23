@@ -1,0 +1,32 @@
+<div class="content">
+  <div class="container">
+    <div class="taille">
+      <p>Size</p>
+      <input type="text" [(ngModel)]="newArticle.taille" placeholder="Size">
+    </div>
+
+    <div class="taille">
+      <p>Desc</p>
+      <input type="text" [(ngModel)]="newArticle.desc" placeholder="Description">
+    </div>
+
+    <div class="taille">
+      <p>State</p>
+      <input type="text" [(ngModel)]="newArticle.etat" placeholder="State">
+    </div>
+
+    <div class="taille">
+      <p>Price</p>
+      <input type="number" [(ngModel)]="newArticle.prix" placeholder="Price">
+    </div>
+
+    <div class="taille">
+      <p>Photo</p>
+      <input type="file" multiple (change)="onPhotoSelected($event)">
+    </div>
+
+    <div class="button">
+      <button (click)="addArticle()">Add</button>
+    </div>
+  </div>
+</div>

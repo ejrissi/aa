@@ -1,0 +1,19 @@
+
+.container
+{
+  margin-bottom: 400px;
+}
+button
+{
+  margin-top: 15px;
+
+  border-radius: 5px;
+}
+
+.f
+{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  
+}

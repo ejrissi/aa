@@ -1,0 +1,50 @@
+<div class="profile-container">
+  <h1>Welcome, {{ currentUser.name }}</h1>
+  <p><strong>Email:</strong> {{ currentUser.email }}</p>
+
+  <!-- Affichage conditionnel basé sur le rôle -->
+  <div *ngIf="!isAdmin(); else adminContent">
+    <p><strong>Role:</strong> User</p>
+    <p><strong>Points:</strong> {{ currentUser.points }}</p>
+
+    <!-- Formulaire pour acheter des points -->
+    <form (ngSubmit)="processPayment()">
+      <div class="form-group">
+        <label for="cardCode">Card Code:</label>
+        <input
+          type="text"
+          id="cardCode"
+          [(ngModel)]="cardCode"
+          name="cardCode"
+          class="form-control"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="amount">Amount (Dinars):</label>
+        <input
+          type="number"
+          id="amount"
+          [(ngModel)]="amount"
+          name="amount"
+          class="form-control"
+          required
+        />
+      </div>
+      <button type="submit" class="btn btn-primary">Buy Points</button>
+    </form>
+
+
+    <div *ngIf="successMessage" class="alert alert-success mt-3">
+      {{ successMessage }}
+    </div>
+    <div *ngIf="errorMessage" class="alert alert-danger mt-3">
+      {{ errorMessage }}
+    </div>
+  </div>
+
+  <ng-template #adminContent>
+    <p><strong>Role:</strong> Administrator</p>
+    <p>You have full administrative privileges. Points are not applicable for admins.</p>
+  </ng-template>
+</div>

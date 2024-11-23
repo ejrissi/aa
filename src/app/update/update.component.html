@@ -1,0 +1,18 @@
+<div class="update-form">
+  <h2>Update Article</h2>
+  <form (ngSubmit)="updateArticle()">
+    <label for="desc">Description:</label>
+    <input id="desc" type="text" [(ngModel)]="article.desc" name="desc" required />
+
+    <label for="prix">Prix:</label>
+    <input id="prix" type="number" [(ngModel)]="article.prix" name="prix" required />
+
+    <label for="taille">Taille:</label>
+    <input id="taille" type="text" [(ngModel)]="article.taille" name="taille" required />
+
+    <label for="etat">État:</label>
+    <input id="etat" type="text" [(ngModel)]="article.etat" name="etat" required />
+
+    <button type="submit">Update</button>
+  </form>
+</div>
