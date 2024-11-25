@@ -11,48 +11,50 @@ import { Router } from '@angular/router';
 })
 export class ADDComponent {
   newArticle: Article = {
-    id: 0,
+
+   
     taille: '',
-    desc: '',
+    description: '',
     etat: '',
     prix: 0,
-    photo: []
+    photo: ''
   };
-  selectedPhotos: string[] = [];
+  selectedPhoto!: string;
 
-  constructor(private service:ServiceService,private r:Router) {}
+  constructor(private service:ServiceService,private r:Router) {
+    console.log(this.newArticle);
+  }
 
   onPhotoSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
-    if (input.files) {
-      for (let i = 0; i < input.files.length; i++) {
-        const reader = new FileReader();
-        reader.onload = (e: any) => {
-          this.selectedPhotos.push(e.target.result); 
-        };
-        reader.readAsDataURL(input.files[i]);
-      }
+    if (input.files && input.files[0]) {
+      this.selectedPhoto ='assets/'+input.files[0].name;
     }
   }
 
-  addArticle(): void {
-    this.newArticle.id = this.service.clothes.length + 1;
-    this.newArticle.photo = [...this.selectedPhotos];
-    this.service.clothes.push({ ...this.newArticle });
-    this.resetForm();
-    this.r.navigate(['/shop']);
 
+  addArticle(): void {
+    if (this.selectedPhoto) {
+      this.newArticle.photo = this.selectedPhoto;
+      this.service.addArticle(this.newArticle).subscribe(() => {
+        alert('Article added successfully!');
+        this.resetForm();
+        this.r.navigate(['/shop']);
+      });
+    } else {
+      alert('Please select an image!');
+    }
   }
 
   resetForm(): void {
     this.newArticle = {
-      id: 0,
+
       taille: '',
-      desc: '',
+      description: '',
       etat: '',
       prix: 0,
-      photo: []
+      photo: ''
     };
-    this.selectedPhotos = [];
+    this.selectedPhoto = '';
   }
 }

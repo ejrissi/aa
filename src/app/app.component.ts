@@ -31,7 +31,7 @@ export class AppComponent {
 
     getArticlesByDesc(searchTerm: string): Article[] {
       return this.clothes.filter(article =>
-        article.desc.toLowerCase().includes(searchTerm.toLowerCase())
+        article.description.toLowerCase().includes(searchTerm.toLowerCase())
       );
 
     }

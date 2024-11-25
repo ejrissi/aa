@@ -4,22 +4,22 @@
 
   <div *ngFor="let item of cart">
     <div class="cart-item">
-      <img [src]="item.photo[0]" alt="item photo" />
-      <p>{{ item.desc }} - {{ item.prix }} points</p>
+      <img [src]="item.photo" alt="item photo" />
+      <p>{{ item.description }} - {{ item.prix }} points</p>
     </div>
   </div>
 
   <div *ngIf="cart.length > 0">
     <p><strong>Total Price: {{ totalPrice }} points</strong></p>
 
-    <!-- Button to process payment -->
+
     <button (click)="processPayment()">Pay with your points</button>
 
-    <!-- Optionally, clear the cart -->
+
     <button (click)="clearCart()">Clear Cart</button>
   </div>
 
-  <!-- Display success or error message -->
+
   <div *ngIf="successMessage" class="alert alert-success mt-3">
     {{ successMessage }}
   </div>

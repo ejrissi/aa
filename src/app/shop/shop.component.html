@@ -10,20 +10,20 @@
 
 
   <div class="content">
-    <div class="image" *ngFor="let item of filteredArticles; let i = index"
+    <div class="image" *ngFor="let item of clothes; let i = index"
       (mouseover)="showButtons[i] = true; showDetails[i] = true"
       (mouseout)="showButtons[i] = false; showDetails[i] = false">
 
       <button class="nav-btn left" *ngIf="showButtons[i]" (click)="previousImage(i)">
         &#10094;
       </button>
-      <img [src]="item.photo[currentImageIndex[i]]" alt="Article Image" />
+      <img [src]="item.photo" alt="Article Image" />
       <button class="nav-btn right" *ngIf="showButtons[i]" (click)="nextImage(i)">
         &#10095;
       </button>
 
 
-      <p class="desc" *ngIf="!showDetails[i]">{{ item.desc }}</p>
+      <p class="desc" *ngIf="!showDetails[i]">{{ item.description }}</p>
       <p class="price" *ngIf="!showDetails[i]">Price: <strong>{{ item.prix }} points</strong></p>
 
       <p class="taille-etat" *ngIf="showDetails[i]">Taille: {{ item.taille }}</p>
@@ -31,7 +31,7 @@
 
       <div class="buttons">
         <button *ngIf="!authService.isAdmin()" class="bu cart" (click)="addToCart(item)">Cart</button>
-        <button *ngIf="authService.isAdmin()" class="bu delete" (click)="deleteArticle(i)">
+        <button *ngIf="authService.isAdmin()" class="bu delete" (click)="deleteArticle(item)">
           Delete
         </button>
         <button *ngIf="authService.isAdmin()" class="bu update" [routerLink]="['/update', item.id]">

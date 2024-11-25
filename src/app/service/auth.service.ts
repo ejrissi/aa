@@ -9,7 +9,7 @@ import { ServiceService } from './service.service';
 export class AuthService {
   users: User[] = [
     { name: 'admin', password: '123', roles: ['ADMIN'], email: 'admin@gmail.com',points:0 },
-    { name: 'ahmed', password: '123', roles: ['USER'], email: 'ahmedmejrissi@gmail.com', cardCode: '1234',points:0 },
+    { name: 'ahmed', password: '123', roles: ['USER'], email: 'ahmedmejrissi@gmail.com', cardCode: '1234',points:200 },
     { name: 'john', password: '456', roles: ['USER'], email: 'john.doe@gmail.com', cardCode: '8765',points:0 },
   ];
 

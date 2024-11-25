@@ -18,14 +18,19 @@ export class UpdateComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id');
-    if (id) {
-      this.article = this.service.getArticleById(+id)!; // Assurez-vous que le service retourne l'article correct
-    }
+    this.service.getArticleById(this.route.snapshot.params['id']).
+    subscribe( prod =>{ this.article = prod; } ) ;
+
   }
 
   updateArticle(): void {
-    this.service.updateArticle(this.article);
-    this.router.navigate(['/shop']); // Redirige vers la liste des articles
-  }
+    this.service.updateArticle(this.article).subscribe(prod =>{
+      this.router.navigate(['/shop']);  });
+
+
+
+
+}
+
+
 }

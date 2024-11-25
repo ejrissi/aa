@@ -18,7 +18,7 @@ const routes: Routes = [
   {path:'home',component:HomeComponent},
   {path:'about',component:AboutComponent},
   {path: 'app-forbidden', component: ForbiddenComponent},
-  {path:'add',component:ADDComponent ,canActivate:[contactGuard] },
+  {path:'add',component:ADDComponent },
   {path:'login',component:LoginComponent},
   { path: 'profile', component: ProfileComponent },
   { path: 'update/:id', component: UpdateComponent },

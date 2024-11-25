@@ -1,8 +1,8 @@
 export interface Article {
-  id: number;
+  id?: number;
   taille: string;
-  desc: string;
-  prix: number;  
-  photo: string[];
+  description: string;
+  prix: number;
+  photo: string;
   etat: string;
 }
